@@ -1,0 +1,44 @@
+body {
+  font-family: sans-serif;
+  color: red;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+video {
+  max-width: 100%;
+  width: 320px;
+}
+
+video.grayscale {
+  filter: grayscale();
+}
+
+video.invert {
+  filter: invert(1);
+}
+
+video.saturate {
+  filter: saturate(3);
+}
+
+video.grayscale {
+  filter: grayscale();
+}
+
+video.grayscale {
+  filter: grayscale();
+}
+
+video.grayscale {
+  filter: grayscale();
+}
+
+@media (max-width: 768px) {
+  video {
+    width: 100%;
+  }
+}
