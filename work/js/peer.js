@@ -37,6 +37,12 @@ class Peer {
     this.btn[buttonName].disabled = disabled;
   }
 
+  getOtherPc(pc) {
+    return (pc === this.pc1) ? this.pc2 : this.pc1;
+  }
+
+
+  // control actions
   start() {
     this.setButtonState('call', true);
     navigator.mediaDevices.getUserMedia({
@@ -74,9 +80,15 @@ class Peer {
   }
 
   hangup() {
-
+    this.pc1.close();
+    this.pc2.close();
+    this.pc1 = null;
+    this.pc2 = null;
+    this.setButtonState('hangup', true)
+    this.setButtonState('call', false)
   }
 
+  //  call utils
   createPeerConnection(pcName, servers) {
     this[pcName] = new RTCPeerConnection(servers);
     this[pcName].onicecandidate = (e) => {
@@ -106,10 +118,6 @@ class Peer {
       this.pc2.setLocalDescription(desc2).then((e) => { console.log('exito')});
       this.pc1.setRemoteDescription(desc2);
     })
-  }
-
-  getOtherPc(pc) {
-    return (pc === this.pc1) ? this.pc2 : this.pc1;
   }
  
 }
