@@ -1,8 +1,10 @@
 # Realtime communication with WebRTC
 
-Following : [Realtime communication with WebRTC](https://codelabs.developers.google.com/codelabs/webrtc-web/#0) codelab
+This code has the resources you need for the codelab [Realtime communication with WebRTC](https://codelabs.developers.google.com/codelabs/webrtc-web/#0).
 
-## The path
+This is a work in progress. If you find a mistake or have a suggestion, please [file an issue](https://github.com/googlecodelabs/webrtc-web/issues). Thanks!
+
+## What you'll learn
 * Get video from your webcam - [completed]
 * Stream video with RTCPeerConnection - [completed]
 * Stream data with RTCDataChannel
@@ -17,3 +19,8 @@ Following : [Realtime communication with WebRTC](https://codelabs.developers.goo
 * The sample code.
 * A text editor.
 * Basic knowledge of HTML, CSS and JavaScript, Node.JS.
+
+
+## For 'step-04', 'step-05', 'step-06'
+
+Run `npm install` before running the code.
