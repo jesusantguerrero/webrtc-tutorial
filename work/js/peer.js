@@ -59,8 +59,9 @@ class Peer {
     this.createPeerConnection('pc1', servers)
     this.createPeerConnection('pc2', servers)
 
-    this.pc2.onAddStream = (e) => {
+    this.pc2.onaddstream = (e) => {
       console.log('here adding stream', e)
+      this.remoteStream = e.stream;
       this.cameras.remote.srcObject = e.stream;
     }
 
@@ -78,20 +79,20 @@ class Peer {
 
   createPeerConnection(pcName, servers) {
     this[pcName] = new RTCPeerConnection(servers);
-    this[pcName].onIceCandidate = (e) => {
-      console.log('here we are')
+    this[pcName].onicecandidate = (e) => {
       this.onIceCandidate(this[pcName], e)
     }
   }
 
   onIceCandidate(pc, event) {
     console.log(event)
+    console.log('here ice candidate')
     if (event.candidate) {
       console.log(event)
       this.getOtherPc(pc).addIceCandidate(
         new RTCIceCandidate(event.candidate)
       )
-      .then(() => { console.log(' ice candidate success')})
+      .then(() => { console.log('ice candidate success')})
     }
   }
 
@@ -101,11 +102,11 @@ class Peer {
     this.pc2.setRemoteDescription(desc)
     
     this.pc2.createAnswer().then((desc2) => {
-      this.pc2.setLocalDescription(desc2);
+      console.log('creating answer')
+      this.pc2.setLocalDescription(desc2).then((e) => { console.log('exito')});
       this.pc1.setRemoteDescription(desc2);
     })
   }
-
 
   getOtherPc(pc) {
     return (pc === this.pc1) ? this.pc2 : this.pc1;
