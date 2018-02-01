@@ -32,15 +32,17 @@ class Peer {
   }
 
   //  utils
-
   setButtonState(buttonName, disabled) {
     this.btn[buttonName].disabled = disabled;
+  }
+
+  changeCameraClass(cameraName, method = 'add') {
+    this.cameras[cameraName].classList[method]('just-local');
   }
 
   getOtherPc(pc) {
     return (pc === this.pc1) ? this.pc2 : this.pc1;
   }
-
 
   // control actions
   start() {
@@ -67,7 +69,7 @@ class Peer {
 
     this.pc2.onaddstream = (e) => {
       console.log('here adding stream', e)
-      this.remoteStream = e.stream;
+      this.changeCameraClass('local','remove');
       this.cameras.remote.srcObject = e.stream;
     }
 
@@ -86,6 +88,8 @@ class Peer {
     this.pc2 = null;
     this.setButtonState('hangup', true)
     this.setButtonState('call', false)
+    this.changeCameraClass('local','add');
+    this.cameras.remote.srcObject = null;
   }
 
   //  call utils

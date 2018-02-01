@@ -5,8 +5,8 @@ This code has the resources you need for the codelab [Realtime communication wit
 This is a work in progress. If you find a mistake or have a suggestion, please [file an issue](https://github.com/googlecodelabs/webrtc-web/issues). Thanks!
 
 ## What you'll learn
-* Get video from your webcam
-* Stream video with RTCPeerConnection
+* Get video from your webcam - [completed]
+* Stream video with RTCPeerConnection - [completed]
 * Stream data with RTCDataChannel
 * Set up a signaling service to exchange messages
 * Combine peer connection and signaling
