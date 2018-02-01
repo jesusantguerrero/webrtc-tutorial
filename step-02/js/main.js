@@ -3,8 +3,10 @@
 var startButton = document.getElementById('startButton');
 var callButton = document.getElementById('callButton');
 var hangupButton = document.getElementById('hangupButton');
+
 callButton.disabled = true;
 hangupButton.disabled = true;
+
 startButton.onclick = start;
 callButton.onclick = call;
 hangupButton.onclick = hangup;
@@ -224,7 +226,6 @@ function hangup() {
   hangupButton.disabled = true;
   callButton.disabled = false;
 }
-
 
 function trace(text) {
   if (text[text.length - 1] === '\n') {

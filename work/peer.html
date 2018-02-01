@@ -5,23 +5,27 @@
 
   <title>Realtime communication with WebRTC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/main.css"/>
+  <link rel="stylesheet" href="./css/peer.css"/>
 
 </head>
 
 <body>
 
   <h1>Realtime communication with WebRTC</h1>
-  <video autoplay></video>
-  <select class="select-video-filter">
-    <option value="normal">Normal</option>
-    <option value="grayscale"> Black and White </option>
-    <option value="invert"> Invert </option>
-    <option value="saturate"> Saturate </option>
-    <option value="">Normal</option>
-  </select>
-  <script src="./js/main.js"></script>
+  <div class="video-main">
+    <video autoplay id="local-camera"></video>
+    <video autoplay id="remote-camera"></video>
+  </div>
+  
+  <div class="video-controls">
+    <button id="btn-start">Start</button>
+    <button id="btn-call">Call</button>
+    <button id="btn-hangup">Hang Up</button>
+  </div>
 
+  <script src="./js/lib/adapter.js"></script>
+  <script src="./js/peer.js"></script>
 </body>
 
 </html>

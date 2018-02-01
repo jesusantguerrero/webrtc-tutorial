@@ -5,8 +5,17 @@ const app = express();
 
 app.use( express.static(path.resolve(__dirname, 'work')))
 
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'work', 'index.html'))
+app.get('/:page', (req, res) => {
+  const page = req.params.page || 'index';
+  res.sendFile(path.resolve(__dirname, 'work', `${page}.html`))
+})
+
+
+app.use( express.static(path.resolve(__dirname)))
+
+app.get('/step-02/:page', (req, res) => {
+  const page = req.params.page || 'index';
+  res.sendFile(path.resolve(__dirname, 'step-02', `${page}.html`))
 })
 
 
