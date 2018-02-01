@@ -10,14 +10,12 @@ app.get('/:page', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'work', `${page}.html`))
 })
 
+app.use( express.static(path.resolve(__dirname, 'codelab-examples')))
 
-app.use( express.static(path.resolve(__dirname)))
-
-app.get('/step-02/:page', (req, res) => {
-  const page = req.params.page || 'index';
-  res.sendFile(path.resolve(__dirname, 'step-02', `${page}.html`))
-})
-
+app.get('/examples/:step/:page', (req, res) => {
+  const { step, page } = req.params;
+  res.sendFile(path.resolve(__dirname, 'codelab-examples', step, `${page ? page : 'index'}.html`));
+});
 
 app.listen(5000, () => {
   console.log('running on port 5000');
