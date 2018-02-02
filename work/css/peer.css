@@ -1,11 +1,19 @@
+
+:root {
+  --gradient-color: linear-gradient(90deg, #28d89b, #1283da);
+  --primary-color: #1283da;
+  --accent-color: #28d89b;
+}
+
 body {
   font-family: sans-serif;
-  color: red;
+  color: #fff;
   display: flex;
   flex-direction: column;
   width: 100%;
   text-align: center;
   align-items: center;
+  background: linear-gradient(90deg, #28d89b, #1283da)
 }
 
 .video-main {
@@ -13,11 +21,14 @@ body {
   width: 640px;
   background: #333;
   position: relative;
+  border: 2px solid white;
+  overflow: hidden;
+  min-height: 300px;
 }
 
 #remote-camera {
   width: 100%;
-  background: red;
+  background: #333;
 }
 
 #local-camera {
@@ -25,7 +36,43 @@ body {
   width: 200px;
   bottom: 0;
   right: 0;
-  background: blue;
+  background: #333;
+  transition: all ease-in 1s
+}
+#local-camera.just-local{
+  width: 100%;
+  height: 100%;
+}
+
+.video-controls {
+  position: absolute;
+  width: 100%;
+  bottom: 5px;
+  opacity: .4;
+}
+
+.video-controls:hover {
+  opacity: 1;
+}
+
+button {
+  border: none;
+  background: var(--accent-color);
+  color: #fff;
+  height: 32px;
+  width: 100px;
+  cursor: pointer;
+  transition: all ease .3s;
+  border-radius: 6px;
+}
+
+button[disabled] {
+  background: #157e59;
+  opacity: .8;
+}
+
+button:not([disabled]):hover {
+  background: var(--gradient-color);
 }
 
 @media (max-width: 768px) {
