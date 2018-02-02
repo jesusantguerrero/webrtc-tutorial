@@ -1,0 +1,11 @@
+textarea {
+  width: 48%;
+  height: 80%;
+}
+
+.textarea-container {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  justify-content: space-around;
+}
