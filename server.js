@@ -10,9 +10,9 @@ app.get('/:page', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'work', `${page}.html`))
 })
 
-app.use( express.static(path.resolve(__dirname, 'codelab-examples')))
+app.use( express.static(path.resolve(__dirname)))
 
-app.get('/examples/:step/:page', (req, res) => {
+app.get('/codelab-examples/:step/:page', (req, res) => {
   const { step, page } = req.params;
   res.sendFile(path.resolve(__dirname, 'codelab-examples', step, `${page ? page : 'index'}.html`));
 });
