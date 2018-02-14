@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Realtime communication with WebRTC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css"/>
+  <link rel="stylesheet" href="./css/peer.css"/>
+  <link rel="stylesheet" href="./css/message.css"/>
+
+</head>
+
+<body>
+
+  <h1>Realtime communication with WebRTC</h1>
+  <div class="video-main">
+    <div class="textarea-container">
+      <textarea id="local-text-channel"  rows="5" disabled placeholder="Press Start, enter some text, then press Send."></textarea>
+      <textarea id="remote-text-channel" rows="5" disabled></textarea>
+    </div>
+
+    <div class="video-controls">
+      <button id="btn-start">Start</button>
+      <button id="btn-send"> Send </button>
+      <button id="btn-close"> Close </button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./js/lib/adapter.js"></script>
+  <script src="./js/chat.js"></script>
+</body>
+
+</html>
