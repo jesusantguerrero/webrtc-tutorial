@@ -32,7 +32,10 @@ class MessageSender {
     this.setButtonState('close', true);
     
     //handle controls click 
-    this.btn.start.addEventListener('click', this.createConnection.bind(this));
+    this.btn.start.addEventListener('click', () => {
+      console.log("here we go")
+      this.createConnection()
+    });
     this.btn.send.addEventListener('click', this.sendData.bind(this));
     this.btn.close.addEventListener('click', this.closeChannels.bind(this));
   }
@@ -51,8 +54,7 @@ class MessageSender {
     const servers = null;
     
     this.createPeerConnection('localConnection', servers);
-    this.sendChannel = this.localConnection.createDataChannel('sendChannel'
-    , this.dataConstraint);
+    this.sendChannel = this.localConnection.createDataChannel('sendChannel', this.dataConstraint);
     this.sendChannel.onopen = this.onSendChannelStateChange.bind(this);
     this.sendChannel.onclose = this.onSendChannelStateChange.bind(this);
     

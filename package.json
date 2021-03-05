@@ -23,6 +23,9 @@
   "homepage": "https://github.com/googlecodelabs/webrtc-web#readme",
   "dependencies": {
     "express": "^4.16.2",
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }

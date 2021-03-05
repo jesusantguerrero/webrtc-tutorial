@@ -18,6 +18,7 @@ class Chat {
   listen() {
     this.socket.on('created', (room, clientId) => {
       this.isInitiator = true;
+      console.log("created")
     });
     
     this.socket.on('full', (room) => {
